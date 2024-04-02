@@ -1,0 +1,58 @@
+{
+    "schema": {
+      "options": {},
+      "crud_objects": {
+        "AccountLockoutReport": {
+          "operations": {
+            "schoolsList": {
+              "method": "get",
+              "call": {
+                "mode": "normal",
+                "path": "/servicesNS/admin/search/search/jobs/export"
+              },
+              "processing_options": {
+                "output_field": null
+              },
+              "query_parameters": {
+                "search": "search index=\"win*\" EventCode=\"4740\"| table _time, user, Account_Domain, Caller_Computer_Name, ComputerName",
+                "earliest_time" : "-24h@h",
+                "latest_time" :"now",
+                "output_mode" : "json"
+              }
+            }
+          },
+          "parameters": {},
+          "key": "_time",
+          "resources": {
+            "_time": "datetime*",
+            "user": "string*",
+            "Account_Domain": "string",
+            "Caller_Computer_Name": "string*",
+            "ComputerName": "string*"
+          }
+        }
+      }
+    },
+    "rest": {
+      "config": {
+        "baseUrl": "https://{tenant_id}",
+        "get": {
+          "maxPageCount": 5,
+          "query_parameters": {}
+        },
+        "authentication": "aeries",
+        "call_handling": "generic",
+        "test_connection": {
+          "url": "/services/authentication/current-context"
+        },
+        "socket_timeout": 3600000,
+        "accept": "application/json",
+        "headers": {
+          "Authorization": "Bearer {client_secret}"
+        }
+      }
+    },
+    "connection": {
+      "items": []
+    }
+  }
