@@ -11,7 +11,7 @@
                 "path": "/servicesNS/admin/search/search/jobs/export"
               },
               "processing_options": {
-                "output_field": null
+                "output_field": "result"
               },
               "query_parameters": {
                 "search": "search index=\"win*\" EventCode=\"4740\"| table _time, user, Account_Domain, Caller_Computer_Name, ComputerName",
