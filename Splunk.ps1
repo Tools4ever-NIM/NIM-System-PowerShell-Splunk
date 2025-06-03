@@ -47,7 +47,7 @@ function Idm-SystemInfo {
         [string] $ConnectionParams
     )
 
-    Log info "-Connection=$Connection -TestConnection=$TestConnection -Configuration=$Configuration -ConnectionParams='$ConnectionParams'"
+    Log verbose "-Connection=$Connection -TestConnection=$TestConnection -Configuration=$Configuration -ConnectionParams='$ConnectionParams'"
 
     if ($Connection) {
         @(
@@ -136,7 +136,7 @@ function Idm-SystemInfo {
         @()
     }
 
-    Log info "Done"
+    Log verbose "Done"
 }
 
 function Idm-OnUnload {
@@ -201,12 +201,12 @@ function Idm-AccountLockoutReportRead {
                 $hash_table = [ordered]@{}
 
                 foreach ($prop in $properties) {
-                    log info $prop
+                    Log verbose $prop
                     $hash_table[$prop] = ""
                 }
 
                 foreach($rowItem in ($response | ConvertFrom-Csv)) {
-                    log info ($rowitem | ConvertTo-Json) 
+                    Log verbose ($rowitem | ConvertTo-Json) 
                     $row = New-Object -TypeName PSObject -Property $hash_table
                     
                     foreach($prop in $rowItem.PSObject.properties) {
