@@ -1,5 +1,7 @@
 # Splunk
 
+Read the [Splunk integration documentation](https://docs.nimsuite.com/en/integrations/splunk) for connector details and related guides.
+
 <img src="https://github.com/Tools4ever-NIM/NIM-System-REST-Adobe-Cloud/assets/24281600/52ac29e7-8645-45b1-abad-ae195183c6d2" width="256px" />
 
 ## Data Tables
